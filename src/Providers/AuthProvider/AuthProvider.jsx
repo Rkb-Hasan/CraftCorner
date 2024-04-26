@@ -11,7 +11,6 @@ import {
 } from "firebase/auth";
 import app from "../../Firebase/firebase.config";
 import { ToastContainer } from "react-toastify";
-
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
