@@ -6,11 +6,16 @@ const Crafts = () => {
 
   return (
     <div>
-      <h3>Craft Items </h3>
-      <div className="grid lg:grid-cols-3  grid-cols-1 gap-4 my-10">
-        {crafts.map((craft) => (
-          <Craft key={craft._id} craft={craft}></Craft>
-        ))}
+      <div className="lg:mt-10 mt-4">
+        <h3 className="lg:text-4xl text-3xl font-bold text-center">
+          Craft Items{" "}
+        </h3>
+        <div className="divider"></div>
+        <div className="grid lg:grid-cols-3  grid-cols-1 gap-4 my-10">
+          {crafts.slice(0, 6).map((craft) => (
+            <Craft key={craft._id} craft={craft}></Craft>
+          ))}
+        </div>
       </div>
     </div>
   );

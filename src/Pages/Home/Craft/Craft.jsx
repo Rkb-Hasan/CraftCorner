@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 const Craft = ({ craft }) => {
   const {
+    _id,
     name,
     price,
     subCategoryName,
@@ -11,6 +12,8 @@ const Craft = ({ craft }) => {
     processingTime,
     userEmail,
     userName,
+    shortDescription,
+    stockStatus,
   } = craft;
 
   return (
@@ -58,7 +61,7 @@ const Craft = ({ craft }) => {
         </div> */}
 
         <div>
-          <Link to="">
+          <Link to={`/craft/${_id}`}>
             <button className=" btn w-full bg-green-500 font-bold text-lg ">
               View Details
             </button>

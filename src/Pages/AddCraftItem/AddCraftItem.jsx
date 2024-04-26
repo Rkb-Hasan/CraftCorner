@@ -15,6 +15,8 @@ const AddCraftItem = () => {
     const userName = form.userName.value;
     const userEmail = form.userEmail.value;
     const customization = form.customization.value;
+    const shortDescription = form.shortDescription.value;
+    const stockStatus = form.stockStatus.value;
     // https://i.ibb.co/1RM7C7J/7-01-1024x683.jpg
 
     const newCraft = {
@@ -27,6 +29,8 @@ const AddCraftItem = () => {
       processingTime,
       userEmail,
       userName,
+      shortDescription,
+      stockStatus,
     };
     console.log(newCraft);
 
@@ -56,139 +60,182 @@ const AddCraftItem = () => {
       <div className="divider"></div>
       <form
         onSubmit={handleAddCraft}
-        className="border w-1/2 mx-auto p-3 space-y-4"
+        className="border rounded-2xl mx-auto lg:p-10 p-5 "
       >
-        <div className="space-y-2">
-          <label htmlFor="name" className="text-lg font-bold ">
-            Item Name
-          </label>
-          <br />
-          <input
-            type="text"
-            name="name"
-            placeholder="Item name.."
-            className="p-3 w-full"
-          />
-        </div>
-        <div className="space-y-2">
-          <label htmlFor="price" className="text-lg font-bold ">
-            Price
-          </label>
-          <br />
-          <input
-            type="text"
-            name="price"
-            placeholder="Price.."
-            className="p-3 w-full"
-          />
-        </div>
-        <div className="space-y-2">
-          <label htmlFor="subCategoryName" className="text-lg font-bold ">
-            Sub Category Name
-          </label>
-          <br />
-          <input
-            type="text"
-            name="subCategoryName"
-            placeholder=" Sub category Name.."
-            className="p-3 w-full"
-          />
-        </div>
-        <div className="space-y-2">
-          <label htmlFor="shortDescription" className="text-lg font-bold ">
-            Short Description
-          </label>
-          <br />
-          <input
-            type="text"
-            name="shortDescription"
-            placeholder=" Short Description.."
-            className="p-3 w-full"
-          />
-        </div>
-        <div className="space-y-2">
-          <label htmlFor="rating" className="text-lg font-bold ">
-            Rating
-          </label>
-          <br />
-          <input
-            type="text"
-            name="rating"
-            placeholder="Rating.."
-            className="p-3 w-full"
-          />
-        </div>
-        <div className="space-y-2">
-          <label htmlFor="customization" className="text-lg font-bold ">
-            Customization
-          </label>
-          <br />
-          <input
-            type="text"
-            name="customization"
-            placeholder="Customization"
-            className="p-3 w-full"
-          />
-        </div>
-        <div className="space-y-2">
-          <label htmlFor="image" className="text-lg font-bold ">
-            Image
-          </label>
-          <br />
-          <input
-            type="text"
-            name="image"
-            placeholder="Image_URL.."
-            className="p-3 w-full"
-          />
-        </div>
-        <div className="space-y-2">
-          <label htmlFor="processingTime" className="text-lg font-bold ">
-            Processing Time
-          </label>
-          <br />
-          <input
-            type="text"
-            name="processingTime"
-            placeholder="Processing Time.."
-            className="p-3 w-full"
-          />
-        </div>
-        <div className="space-y-2">
-          <label htmlFor="stockStatus " className="text-lg font-bold ">
-            Stock Status
-          </label>
-          <br />
-          <input
-            type="text"
-            name="stockStatus"
-            placeholder="Stock Status.."
-            className="p-3 w-full"
-          />
-        </div>
-        <div className="space-y-2">
-          <label htmlFor="userEmail " className="text-lg font-bold ">
-            User Email
-          </label>
-          <br />
-          <input
-            type="email"
-            name="userEmail"
-            placeholder="User Email.."
-            className="p-3 w-full"
-          />
-        </div>
-        <div className="space-y-2">
-          <label htmlFor="userName " className="text-lg font-bold ">
-            User Name
-          </label>
-          <br />
-          <input
-            type="text"
-            name="userName"
-            placeholder="User Name.."
-            className="p-3 w-full"
-          />
+        <div className="grid lg:grid-cols-2 lg:gap-20 mb-4">
+          <div className="space-y-4">
+            <div className="space-y-3">
+              <label htmlFor="name" className="lg:text-xl text-lg font-bold ">
+                Item Name
+              </label>
+              <br />
+              <input
+                type="text"
+                name="name"
+                placeholder="Item name.."
+                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+              />
+            </div>
+            <div className="space-y-3">
+              <label htmlFor="price" className="lg:text-xl text-lg font-bold ">
+                Price
+              </label>
+              <br />
+              <input
+                type="text"
+                name="price"
+                placeholder="Price.."
+                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+              />
+            </div>
+            <div className="space-y-3">
+              <label
+                htmlFor="subCategoryName"
+                className="lg:text-xl text-lg font-bold "
+              >
+                Sub Category Name
+              </label>
+              <br />
+              <input
+                type="text"
+                name="subCategoryName"
+                placeholder=" Sub category Name.."
+                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+              />
+            </div>
+            <div className="space-y-3">
+              <label
+                htmlFor="shortDescription"
+                className="lg:text-xl text-lg font-bold "
+              >
+                Short Description
+              </label>
+              <br />
+              <input
+                type="text"
+                name="shortDescription"
+                placeholder=" Short Description.."
+                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+              />
+            </div>
+            <div className="space-y-3">
+              <label
+                htmlFor="userEmail "
+                className="lg:text-xl text-lg font-bold "
+              >
+                User Email
+              </label>
+              <br />
+              <input
+                type="email"
+                name="userEmail"
+                placeholder="User Email.."
+                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+              />
+            </div>
+            <div className="space-y-3">
+              <label htmlFor="rating" className="lg:text-xl text-lg font-bold ">
+                Rating
+              </label>
+              <br />
+              <input
+                type="text"
+                name="rating"
+                placeholder="Rating.."
+                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+              />
+            </div>
+          </div>
+          <div className="space-y-4">
+            <div className="space-y-3">
+              <label
+                htmlFor="customization"
+                className="lg:text-xl text-lg font-bold "
+              >
+                Customization
+              </label>
+              <br />
+              {/* <input
+                type="text"
+                name="customization"
+                placeholder="Customization"
+                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+              /> */}
+              <select
+                name="customization"
+                className="lg:p-4 p-2  rounded-lg w-full lg:text-lg"
+              >
+                <option value="yes">yes</option>
+                <option value="no">no</option>
+              </select>
+            </div>
+            <div className="space-y-3">
+              <label htmlFor="image" className="lg:text-xl text-lg font-bold ">
+                Image
+              </label>
+              <br />
+              <input
+                type="text"
+                name="image"
+                placeholder="Image_URL.."
+                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+              />
+            </div>
+            <div className="space-y-3">
+              <label
+                htmlFor="processingTime"
+                className="lg:text-xl text-lg font-bold "
+              >
+                Processing Time
+              </label>
+              <br />
+              <input
+                type="text"
+                name="processingTime"
+                placeholder="Processing Time.."
+                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+              />
+            </div>
+            <div className="space-y-3">
+              <label
+                htmlFor="stockStatus "
+                className="lg:text-xl text-lg font-bold "
+              >
+                Stock Status
+              </label>
+              <br />
+              {/* <input
+                type="text"
+                name="stockStatus"
+                placeholder="Stock Status.."
+                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+              /> */}
+
+              <select
+                name="stockStatus"
+                className="lg:p-4 p-2  rounded-lg w-full lg:text-lg"
+              >
+                <option value="- In stock">In stock</option>
+                <option value="Made to Order">Made to Order</option>
+              </select>
+            </div>
+
+            <div className="space-y-3">
+              <label
+                htmlFor="userName "
+                className="lg:text-xl text-lg font-bold "
+              >
+                User Name
+              </label>
+              <br />
+              <input
+                type="text"
+                name="userName"
+                placeholder="User Name.."
+                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+              />
+            </div>
+          </div>
         </div>
 
         <input

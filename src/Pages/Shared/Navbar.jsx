@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { user, logOut, loading } = useContext(AuthContext);
-
+  // console.log(user.photoURL);
   const handleLogOut = () => {
     logOut()
       .then((result) => {
@@ -22,20 +22,20 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/update">Update Profile</NavLink>
+        <NavLink to="/allCraft">All Art & craft Items</NavLink>
       </li>
       <li>
-        <NavLink to="/offers">My Offers</NavLink>
+        <NavLink to="/addCraftItem">Add Craft Item</NavLink>
       </li>
       <li>
-        <NavLink to="/about">About</NavLink>
+        <NavLink to="/about">My Art&Craft List</NavLink>
       </li>
     </>
   );
 
   return (
     <div className="bg-green-500 bg-opacity-70">
-      <div className="navbar max-w-7xl mx-auto px-4  ">
+      <div className="navbar  mx-auto px-4  ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -96,11 +96,18 @@ const Navbar = () => {
               <span className="loading loading-spinner loading-md "></span>
             </div>
           ) : (
-            <Link to="/login">
-              <button className="btn font-bold btn-primary lg:text-lg ">
-                Login
-              </button>
-            </Link>
+            <div className="space-x-2">
+              <Link to="/login">
+                <button className="btn font-bold btn-primary lg:text-lg ">
+                  Login
+                </button>
+              </Link>
+              <Link to="/register">
+                <button className="btn font-bold btn-primary lg:text-lg ">
+                  Register
+                </button>
+              </Link>
+            </div>
           )}
         </div>
       </div>
