@@ -1,0 +1,22 @@
+[
+  {
+    "name": "The Creative Collective",
+    "id": 1,
+    "image": "https://i.ibb.co/C71BbwK/creative.jpg"
+  },
+  {
+    "name": "Arts Alliance",
+    "id": 2,
+    "image": "https://i.ibb.co/YRjsqGL/artsalliance.jpg"
+  },
+  {
+    "name": "Institute of Creative Arts",
+    "id": 3,
+    "image": "https://i.ibb.co/VMXLXDL/ica.jpg"
+  },
+  {
+    "name": "Handcrafted Ventures",
+    "id": 4,
+    "image": "https://i.ibb.co/LnSSgMV/ventures.webp"
+  }
+]

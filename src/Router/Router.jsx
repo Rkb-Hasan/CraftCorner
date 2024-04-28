@@ -15,6 +15,8 @@ import UpdateCraft from "../Pages/UpdateCraft/UpdateCraft";
 import ArtCraftCategories from "../Pages/Home/ArtCraftCategories/ArtCraftCategories";
 import SubDetails from "../Pages/SubDetails/SubDetails";
 import SubItemDetails from "../Pages/SubDetails/SubItemDetails/SubItemDetails";
+import OurPartners from "../Pages/Home/OurPartners/OurPartners";
+import Member from "../Pages/Home/Member/Member";
 // import Landscape from "../Pages/SubDetails/SubDetails";
 const router = createBrowserRouter([
   {
@@ -51,6 +53,14 @@ const router = createBrowserRouter([
         path: "/",
         element: <ArtCraftCategories></ArtCraftCategories>,
         loader: () => fetch("http://localhost:5000/subCategories"),
+      },
+      {
+        path: "/",
+        element: <OurPartners></OurPartners>,
+      },
+      {
+        path: "/",
+        element: <Member></Member>,
       },
       {
         path: "/subDetails/:subCategoryName",

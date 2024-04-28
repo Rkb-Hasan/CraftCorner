@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
-
+import { Tooltip } from "react-tooltip";
 const Navbar = () => {
   const { user, logOut, loading } = useContext(AuthContext);
   const [theme, setTheme] = useState("light");
@@ -125,16 +125,17 @@ const Navbar = () => {
           </label>
           {user ? (
             <div className="flex gap-2">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn bg-inherit hover:bg-inherit border-none hover:border-none btn-circle avatar tooltip tooltip-bottom z-20"
-                data-tip={user.displayName}
-              >
-                <div className="w-10 rounded-full ">
-                  <img alt="User" src={user.photoURL} />
-                </div>
+              <div className="w-10  ">
+                <img
+                  alt="User"
+                  className="userPhoto rounded-full"
+                  src={user.photoURL}
+                />
               </div>
+              <Tooltip anchorSelect=".userPhoto" place="bottom">
+                {user.displayName}
+              </Tooltip>
+
               <button
                 onClick={handleLogOut}
                 className="btn font-bold btn-primary lg:text-lg"
