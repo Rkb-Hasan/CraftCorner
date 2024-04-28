@@ -9,6 +9,11 @@ import Register from "./../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import AllCraft from "../Pages/AllCraft/AllCraft";
 import CraftDetails from "../Pages/CraftDetails/CraftDetails";
+import MyArt from "../Pages/MyArt/MyArt";
+import MyArts from "../Pages/MyArts/MyArts";
+import UpdateCraft from "../Pages/UpdateCraft/UpdateCraft";
+import ArtCraftCategories from "../Pages/Home/ArtCraftCategories/ArtCraftCategories";
+import Landscape from "../Pages/Landscape/Landscape";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,6 +31,7 @@ const router = createBrowserRouter([
           },
         ],
       },
+
       {
         path: "/login",
         element: <Login></Login>,
@@ -40,12 +46,35 @@ const router = createBrowserRouter([
         loader: () => fetch("http://localhost:5000/crafts"),
       },
       {
+        path: "/",
+        element: <ArtCraftCategories></ArtCraftCategories>,
+        loader: () => fetch("http://localhost:5000/subCategories"),
+      },
+      {
+        path: "/subDetails/:subCategoryName",
+        element: <Landscape></Landscape>,
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:5000/subCategories/${params.subCategoryName}`
+          ),
+      },
+      {
         path: "/addCraftItem",
         element: (
           <PrivateRoute>
             <AddCraftItem></AddCraftItem>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/updateCraft/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateCraft></UpdateCraft>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/crafts/${params.id}`),
       },
       {
         path: "/craft/:id",
@@ -56,6 +85,14 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/crafts/${params.id}`),
+      },
+      {
+        path: "/craft/myArt",
+        element: (
+          <PrivateRoute>
+            <MyArts></MyArts>
+          </PrivateRoute>
+        ),
       },
     ],
   },

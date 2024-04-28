@@ -1,12 +1,27 @@
-import { useContext } from "react";
+// import { useContext } from "react";
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
-import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
+// import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 
-const AddCraftItem = () => {
-  const { user } = useContext(AuthContext);
-  const { email } = user;
-  //
-  const handleAddCraft = (e) => {
+const UpdateCraft = () => {
+  //   const { user } = useContext(AuthContext);
+  //   const { email } = user;
+
+  const craft = useLoaderData();
+  const {
+    _id,
+    name,
+    price,
+    subCategoryName,
+    customization,
+    rating,
+    image,
+    processingTime,
+    shortDescription,
+    stockStatus,
+  } = craft;
+  console.log(craft);
+  const handleUpdateCraft = (e) => {
     e.preventDefault();
 
     const form = e.target;
@@ -16,14 +31,12 @@ const AddCraftItem = () => {
     const rating = form.rating.value;
     const image = form.image.value;
     const processingTime = form.processingTime.value;
-    const userName = form.userName.value;
-    const userEmail = form.userEmail.value;
     const customization = form.customization.value;
     const shortDescription = form.shortDescription.value;
     const stockStatus = form.stockStatus.value;
     // https://i.ibb.co/1RM7C7J/7-01-1024x683.jpg
 
-    const newCraft = {
+    const updatedCraft = {
       name,
       price,
       subCategoryName,
@@ -31,39 +44,36 @@ const AddCraftItem = () => {
       rating,
       image,
       processingTime,
-      userEmail,
-      userName,
       shortDescription,
       stockStatus,
     };
-    console.log(newCraft);
 
-    // send to server
-    fetch("http://localhost:5000/crafts", {
-      method: "POST",
+    fetch(`http://localhost:5000/crafts/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(newCraft),
+      body: JSON.stringify(updatedCraft),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        Swal.fire({
-          title: "Success!",
-          text: "User added",
-          icon: "success",
-          confirmButtonText: "Cool",
-        });
+        if (data.modifiedCount) {
+          Swal.fire({
+            title: "Success!",
+            text: "Coffee updated",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
       });
   };
-
   return (
     <div>
-      <h3 className="text-4xl  font-bold  text-center">Add Craft</h3>
+      <h3 className="text-4xl  font-bold  text-center">Update Craft</h3>
       <div className="divider"></div>
       <form
-        onSubmit={handleAddCraft}
+        onSubmit={handleUpdateCraft}
         className="border rounded-2xl mx-auto lg:p-10 p-5 "
       >
         <div className="grid lg:grid-cols-2 lg:gap-20 mb-4">
@@ -76,6 +86,7 @@ const AddCraftItem = () => {
               <input
                 type="text"
                 name="name"
+                defaultValue={name}
                 placeholder="Item name.."
                 className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
@@ -88,6 +99,7 @@ const AddCraftItem = () => {
               <input
                 type="text"
                 name="price"
+                defaultValue={price}
                 placeholder="Price.."
                 className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
@@ -103,6 +115,7 @@ const AddCraftItem = () => {
               <input
                 type="text"
                 name="subCategoryName"
+                defaultValue={subCategoryName}
                 placeholder=" Sub category Name.."
                 className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
@@ -118,26 +131,12 @@ const AddCraftItem = () => {
               <input
                 type="text"
                 name="shortDescription"
+                defaultValue={shortDescription}
                 placeholder=" Short Description.."
                 className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
             </div>
-            <div className="space-y-3">
-              <label
-                htmlFor="userEmail "
-                className="lg:text-xl text-lg font-bold "
-              >
-                User Email
-              </label>
-              <br />
-              <input
-                type="email"
-                name="userEmail"
-                placeholder="User Email.."
-                defaultValue={email}
-                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
-              />
-            </div>
+
             <div className="space-y-3">
               <label htmlFor="rating" className="lg:text-xl text-lg font-bold ">
                 Rating
@@ -146,6 +145,7 @@ const AddCraftItem = () => {
               <input
                 type="text"
                 name="rating"
+                defaultValue={rating}
                 placeholder="Rating.."
                 className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
@@ -177,6 +177,7 @@ const AddCraftItem = () => {
               <input
                 type="text"
                 name="image"
+                defaultValue={image}
                 placeholder="Image_URL.."
                 className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
@@ -192,6 +193,7 @@ const AddCraftItem = () => {
               <input
                 type="text"
                 name="processingTime"
+                defaultValue={processingTime}
                 placeholder="Processing Time.."
                 className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
@@ -204,12 +206,6 @@ const AddCraftItem = () => {
                 Stock Status
               </label>
               <br />
-              {/* <input
-                type="text"
-                name="stockStatus"
-                placeholder="Stock Status.."
-                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
-              /> */}
 
               <select
                 name="stockStatus"
@@ -219,28 +215,12 @@ const AddCraftItem = () => {
                 <option value="Made to Order">Made to Order</option>
               </select>
             </div>
-
-            <div className="space-y-3">
-              <label
-                htmlFor="userName "
-                className="lg:text-xl text-lg font-bold "
-              >
-                User Name
-              </label>
-              <br />
-              <input
-                type="text"
-                name="userName"
-                placeholder="User Name.."
-                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
-              />
-            </div>
           </div>
         </div>
 
         <input
           type="submit"
-          value="Add"
+          value="Update"
           className="w-full btn font-bold text-lg"
         />
       </form>
@@ -248,4 +228,4 @@ const AddCraftItem = () => {
   );
 };
 
-export default AddCraftItem;
+export default UpdateCraft;
