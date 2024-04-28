@@ -1,13 +1,17 @@
 // import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useForm } from "react-hook-form";
+
 // import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 
 const UpdateCraft = () => {
   //   const { user } = useContext(AuthContext);
   //   const { email } = user;
-
+  const { reset } = useForm();
   const craft = useLoaderData();
+  const navigate = useNavigate();
+
   const {
     _id,
     name,
@@ -48,7 +52,7 @@ const UpdateCraft = () => {
       stockStatus,
     };
 
-    fetch(`http://localhost:5000/crafts/${_id}`, {
+    fetch(`http://localhost:5000/update/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -63,8 +67,10 @@ const UpdateCraft = () => {
             title: "Success!",
             text: "Coffee updated",
             icon: "success",
-            confirmButtonText: "Cool",
+            confirmButtonText: "OK",
           });
+
+          navigate("/craft/myArt");
         }
       });
   };
@@ -112,13 +118,20 @@ const UpdateCraft = () => {
                 Sub Category Name
               </label>
               <br />
-              <input
-                type="text"
+              <select
                 name="subCategoryName"
-                defaultValue={subCategoryName}
-                placeholder=" Sub category Name.."
                 className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
-              />
+                defaultValue={subCategoryName}
+              >
+                <option value="Landscape Painting">Landscape Painting</option>
+                <option value="Portrait Drawing">Portrait Drawing</option>
+                <option value="Watercolour Painting">
+                  Watercolour Painting
+                </option>
+                <option value="Oil Painting">Oil Painting</option>
+                <option value="Charcoal Sketching">Charcoal Sketching</option>
+                <option value="Cartoon Drawing">Cartoon Drawing</option>
+              </select>
             </div>
             <div className="space-y-3">
               <label

@@ -1,10 +1,14 @@
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
+import { useForm } from "react-hook-form";
 
 const AddCraftItem = () => {
   const { user } = useContext(AuthContext);
-  const { email } = user;
+  const { email, displayName } = user;
+
+  const { reset } = useForm();
+
   //
   const handleAddCraft = (e) => {
     e.preventDefault();
@@ -48,13 +52,16 @@ const AddCraftItem = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        Swal.fire({
-          title: "Success!",
-          text: "User added",
-          icon: "success",
-          confirmButtonText: "Cool",
-        });
+        if (data.insertedId) {
+          console.log(data);
+          Swal.fire({
+            title: "Success!",
+            text: "User added",
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+        }
+        reset();
       });
   };
 
@@ -76,6 +83,7 @@ const AddCraftItem = () => {
               <input
                 type="text"
                 name="name"
+                required
                 placeholder="Item name.."
                 className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
@@ -88,6 +96,7 @@ const AddCraftItem = () => {
               <input
                 type="text"
                 name="price"
+                required
                 placeholder="Price.."
                 className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
@@ -100,12 +109,20 @@ const AddCraftItem = () => {
                 Sub Category Name
               </label>
               <br />
-              <input
-                type="text"
+              <select
                 name="subCategoryName"
-                placeholder=" Sub category Name.."
                 className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
-              />
+                required
+              >
+                <option value="Landscape Painting">Landscape Painting</option>
+                <option value="Portrait Drawing">Portrait Drawing</option>
+                <option value="Watercolour Painting">
+                  Watercolour Painting
+                </option>
+                <option value="Oil Painting">Oil Painting</option>
+                <option value="Charcoal Sketching">Charcoal Sketching</option>
+                <option value="Cartoon Drawing">Cartoon Drawing</option>
+              </select>
             </div>
             <div className="space-y-3">
               <label
@@ -118,6 +135,7 @@ const AddCraftItem = () => {
               <input
                 type="text"
                 name="shortDescription"
+                required
                 placeholder=" Short Description.."
                 className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
@@ -133,8 +151,9 @@ const AddCraftItem = () => {
               <input
                 type="email"
                 name="userEmail"
+                required
                 placeholder="User Email.."
-                defaultValue={email}
+                value={email}
                 className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
             </div>
@@ -146,6 +165,7 @@ const AddCraftItem = () => {
               <input
                 type="text"
                 name="rating"
+                required
                 placeholder="Rating.."
                 className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
@@ -164,6 +184,7 @@ const AddCraftItem = () => {
               <select
                 name="customization"
                 className="lg:p-4 p-2  rounded-lg w-full lg:text-lg"
+                required
               >
                 <option value="yes">yes</option>
                 <option value="no">no</option>
@@ -177,6 +198,7 @@ const AddCraftItem = () => {
               <input
                 type="text"
                 name="image"
+                required
                 placeholder="Image_URL.."
                 className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
@@ -192,6 +214,7 @@ const AddCraftItem = () => {
               <input
                 type="text"
                 name="processingTime"
+                required
                 placeholder="Processing Time.."
                 className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
@@ -207,6 +230,7 @@ const AddCraftItem = () => {
               {/* <input
                 type="text"
                 name="stockStatus"
+                 required
                 placeholder="Stock Status.."
                 className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               /> */}
@@ -214,6 +238,7 @@ const AddCraftItem = () => {
               <select
                 name="stockStatus"
                 className="lg:p-4 p-2  rounded-lg w-full lg:text-lg"
+                required
               >
                 <option value="- In stock">In stock</option>
                 <option value="Made to Order">Made to Order</option>
@@ -231,6 +256,8 @@ const AddCraftItem = () => {
               <input
                 type="text"
                 name="userName"
+                value={displayName}
+                required
                 placeholder="User Name.."
                 className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
@@ -241,7 +268,7 @@ const AddCraftItem = () => {
         <input
           type="submit"
           value="Add"
-          className="w-full btn font-bold text-lg"
+          className="w-full btn btn-primary font-bold text-lg"
         />
       </form>
     </div>
