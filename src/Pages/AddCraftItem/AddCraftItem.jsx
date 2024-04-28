@@ -71,7 +71,7 @@ const AddCraftItem = () => {
       <div className="divider"></div>
       <form
         onSubmit={handleAddCraft}
-        className="border rounded-2xl mx-auto lg:p-10 p-5 "
+        className="border-2 rounded-2xl mx-auto lg:p-10 p-5 "
       >
         <div className="grid lg:grid-cols-2 lg:gap-20 mb-4">
           <div className="space-y-4">
@@ -85,7 +85,7 @@ const AddCraftItem = () => {
                 name="name"
                 required
                 placeholder="Item name.."
-                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+                className=" border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
             </div>
             <div className="space-y-3">
@@ -98,7 +98,7 @@ const AddCraftItem = () => {
                 name="price"
                 required
                 placeholder="Price.."
-                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+                className=" border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
             </div>
             <div className="space-y-3">
@@ -111,7 +111,7 @@ const AddCraftItem = () => {
               <br />
               <select
                 name="subCategoryName"
-                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+                className=" border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
                 required
               >
                 <option value="Landscape Painting">Landscape Painting</option>
@@ -137,7 +137,7 @@ const AddCraftItem = () => {
                 name="shortDescription"
                 required
                 placeholder=" Short Description.."
-                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+                className=" border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
             </div>
             <div className="space-y-3">
@@ -154,7 +154,7 @@ const AddCraftItem = () => {
                 required
                 placeholder="User Email.."
                 value={email}
-                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+                className=" border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
             </div>
             <div className="space-y-3">
@@ -167,7 +167,7 @@ const AddCraftItem = () => {
                 name="rating"
                 required
                 placeholder="Rating.."
-                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+                className=" border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
             </div>
           </div>
@@ -183,7 +183,7 @@ const AddCraftItem = () => {
 
               <select
                 name="customization"
-                className="lg:p-4 p-2  rounded-lg w-full lg:text-lg"
+                className=" border-2 focus:ring lg:p-4 p-2  rounded-lg w-full lg:text-lg"
                 required
               >
                 <option value="yes">yes</option>
@@ -200,7 +200,7 @@ const AddCraftItem = () => {
                 name="image"
                 required
                 placeholder="Image_URL.."
-                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+                className=" border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
             </div>
             <div className="space-y-3">
@@ -216,7 +216,7 @@ const AddCraftItem = () => {
                 name="processingTime"
                 required
                 placeholder="Processing Time.."
-                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+                className=" border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
             </div>
             <div className="space-y-3">
@@ -237,7 +237,7 @@ const AddCraftItem = () => {
 
               <select
                 name="stockStatus"
-                className="lg:p-4 p-2  rounded-lg w-full lg:text-lg"
+                className=" border-2 focus:ring lg:p-4 p-2  rounded-lg w-full lg:text-lg"
                 required
               >
                 <option value="- In stock">In stock</option>
@@ -259,7 +259,7 @@ const AddCraftItem = () => {
                 value={displayName}
                 required
                 placeholder="User Name.."
-                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+                className=" border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
             </div>
           </div>
