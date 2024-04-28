@@ -9,11 +9,13 @@ import Register from "./../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import AllCraft from "../Pages/AllCraft/AllCraft";
 import CraftDetails from "../Pages/CraftDetails/CraftDetails";
-import MyArt from "../Pages/MyArt/MyArt";
+// import MyArt from "../Pages/MyArt/MyArt";
 import MyArts from "../Pages/MyArts/MyArts";
 import UpdateCraft from "../Pages/UpdateCraft/UpdateCraft";
 import ArtCraftCategories from "../Pages/Home/ArtCraftCategories/ArtCraftCategories";
-import Landscape from "../Pages/Landscape/Landscape";
+import SubDetails from "../Pages/SubDetails/SubDetails";
+import SubItemDetails from "../Pages/SubDetails/SubItemDetails/SubItemDetails";
+// import Landscape from "../Pages/SubDetails/SubDetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -52,7 +54,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/subDetails/:subCategoryName",
-        element: <Landscape></Landscape>,
+        element: <SubDetails></SubDetails>,
         loader: ({ params }) =>
           fetch(
             `http://localhost:5000/subCategories/${params.subCategoryName}`
@@ -85,6 +87,12 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/crafts/${params.id}`),
+      },
+      {
+        path: "/subCategoryDetail/:id",
+        element: <SubItemDetails></SubItemDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/subCategoryDetail/${params.id}`),
       },
       {
         path: "/craft/myArt",
