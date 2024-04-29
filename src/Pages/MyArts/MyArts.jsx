@@ -45,13 +45,15 @@ const MyArts = () => {
         <h3 className="text-4xl font-bold text-center flex-1">
           My Art & Craft{" "}
         </h3>
-        <details className="dropdown ms-auto">
-          <summary className="m-1 btn text-lg font-bold">Customization</summary>
-          <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-            <li onClick={handleYes} className="font-semibold">
+        <details className="dropdown  ms-auto">
+          <summary className="m-1 btn btn-primary text-lg font-bold">
+            Customization
+          </summary>
+          <ul className="p-2 shadow menu dropdown-content bg-green-700  z-[1]  rounded-box w-52">
+            <li onClick={handleYes} className="font-bold text-lg  border-b-2">
               <a>yes</a>
             </li>
-            <li onClick={handleNo} className="font-semibold">
+            <li onClick={handleNo} className="font-bold text-lg">
               <a>no</a>
             </li>
           </ul>
