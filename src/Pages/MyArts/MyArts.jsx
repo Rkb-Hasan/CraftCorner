@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import MyArt from "../MyArt/MyArt";
+import { Helmet } from "react-helmet";
 
 const MyArts = () => {
   const [myArts, setMyArts] = useState([]);
@@ -11,7 +12,7 @@ const MyArts = () => {
   const { email } = user;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/craft/${email}`)
+    fetch(`https://assignment-10-server-eight-opal.vercel.app/craft/${email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyArts(data);
@@ -22,13 +23,6 @@ const MyArts = () => {
   useEffect(() => {
     setFilteredArts(myArts);
   }, [myArts]);
-
-  // const handleYesNo = (ipt) => {
-  //   setYesNo(ipt);
-  //   const filtered = myArts.filter((art) => art.customization == yesNo);
-  //   setCustom(filtered);
-  // };
-  // console.log(custom);
 
   const handleYes = () => {
     const filtered = myArts.filter((myArt) => myArt.customization == "yes");
@@ -41,6 +35,9 @@ const MyArts = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>My Arts</title>
+      </Helmet>
       <div className="flex">
         <h3 className="text-4xl font-bold text-center flex-1">
           My Art & Craft{" "}
@@ -62,7 +59,12 @@ const MyArts = () => {
       <div className="divider"></div>
       <div className="grid lg:grid-cols-3  grid-cols-1 gap-4 my-10">
         {filteredArts.map((myArt) => (
-          <MyArt key={myArt._id} myArt={myArt}></MyArt>
+          <MyArt
+            key={myArt._id}
+            myArt={myArt}
+            filteredArts={filteredArts}
+            setFilteredArts={setFilteredArts}
+          ></MyArt>
         ))}
       </div>
     </div>

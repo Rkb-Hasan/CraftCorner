@@ -33,7 +33,10 @@ const router = createBrowserRouter([
           {
             path: "/",
             element: <Crafts></Crafts>,
-            loader: () => fetch("http://localhost:5000/crafts"),
+            loader: () =>
+              fetch(
+                "https://assignment-10-server-eight-opal.vercel.app/crafts"
+              ),
           },
         ],
       },
@@ -49,12 +52,16 @@ const router = createBrowserRouter([
       {
         path: "/allCraft",
         element: <AllCraft></AllCraft>,
-        loader: () => fetch("http://localhost:5000/crafts"),
+        loader: () =>
+          fetch("https://assignment-10-server-eight-opal.vercel.app/crafts"),
       },
       {
         path: "/",
         element: <ArtCraftCategories></ArtCraftCategories>,
-        loader: () => fetch("http://localhost:5000/subCategories"),
+        loader: () =>
+          fetch(
+            "https://assignment-10-server-eight-opal.vercel.app/subCategories"
+          ),
       },
       {
         path: "/",
@@ -69,7 +76,7 @@ const router = createBrowserRouter([
         element: <SubDetails></SubDetails>,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/subCategories/${params.subCategoryName}`
+            `https://assignment-10-server-eight-opal.vercel.app/subCategories/${params.subCategoryName}`
           ),
       },
       {
@@ -88,7 +95,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/crafts/${params.id}`),
+          fetch(
+            `https://assignment-10-server-eight-opal.vercel.app/crafts/${params.id}`
+          ),
       },
       {
         path: "/craft/:id",
@@ -98,13 +107,17 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/crafts/${params.id}`),
+          fetch(
+            `https://assignment-10-server-eight-opal.vercel.app/crafts/${params.id}`
+          ),
       },
       {
         path: "/subCategoryDetail/:id",
         element: <SubItemDetails></SubItemDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/subCategoryDetail/${params.id}`),
+          fetch(
+            `https://assignment-10-server-eight-opal.vercel.app/subCategoryDetail/${params.id}`
+          ),
       },
       {
         path: "/craft/myArt",

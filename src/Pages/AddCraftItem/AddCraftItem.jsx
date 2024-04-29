@@ -2,11 +2,13 @@ import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const AddCraftItem = () => {
   const { user } = useContext(AuthContext);
   const { email, displayName } = user;
-
+  const navigate = useNavigate();
   const { reset } = useForm();
 
   //
@@ -43,7 +45,7 @@ const AddCraftItem = () => {
     console.log(newCraft);
 
     // send to server
-    fetch("http://localhost:5000/crafts", {
+    fetch("https://assignment-10-server-eight-opal.vercel.app/crafts", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -60,6 +62,7 @@ const AddCraftItem = () => {
             icon: "success",
             confirmButtonText: "OK",
           });
+          navigate("/");
         }
         reset();
       });
@@ -67,7 +70,10 @@ const AddCraftItem = () => {
 
   return (
     <div>
-      <h3 className="text-4xl  font-bold  text-center">Add Craft</h3>
+      <Helmet>
+        <title>Add Craft</title>
+      </Helmet>
+      <h3 className="lg:text-4xl text-2xl font-bold  text-center">Add Craft</h3>
       <div className="divider"></div>
       <form
         onSubmit={handleAddCraft}
@@ -240,7 +246,7 @@ const AddCraftItem = () => {
                 className=" border-2 focus:ring lg:p-4 p-2  rounded-lg w-full lg:text-lg"
                 required
               >
-                <option value="- In stock">In stock</option>
+                <option value="In stock">In stock</option>
                 <option value="Made to Order">Made to Order</option>
               </select>
             </div>

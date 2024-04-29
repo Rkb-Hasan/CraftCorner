@@ -2,6 +2,7 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
+import { Helmet } from "react-helmet";
 
 // import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 
@@ -52,7 +53,7 @@ const UpdateCraft = () => {
       stockStatus,
     };
 
-    fetch(`http://localhost:5000/update/${_id}`, {
+    fetch(`https://assignment-10-server-eight-opal.vercel.app/update/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -76,6 +77,9 @@ const UpdateCraft = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>Update</title>
+      </Helmet>
       <h3 className="text-4xl  font-bold  text-center">Update Craft</h3>
       <div className="divider"></div>
       <form

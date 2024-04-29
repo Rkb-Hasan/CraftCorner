@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 const SubDetail = ({ subDetail }) => {
@@ -14,6 +15,9 @@ const SubDetail = ({ subDetail }) => {
 
   return (
     <div className="card pb-2  bg-base-200 hover:shadow-xl">
+      <Helmet>
+        <title>Sub Detail</title>
+      </Helmet>
       <figure>
         <img src={image} alt={item_name} className="h-[480px] w-full" />
       </figure>

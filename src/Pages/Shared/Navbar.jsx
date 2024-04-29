@@ -78,7 +78,7 @@ const Navbar = () => {
             </ul>
           </div>
           <a className="btn btn-ghost lg:text-4xl  md:text-3xl font-bold text-2xl">
-            HomeHub
+            CraftCorner
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">

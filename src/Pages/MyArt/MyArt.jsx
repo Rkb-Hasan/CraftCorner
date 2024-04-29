@@ -1,7 +1,8 @@
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const MyArt = ({ myArt, yesNo, myArts, setMyArts }) => {
+const MyArt = ({ myArt, setFilteredArts, filteredArts }) => {
   const { _id, name, price, customization, rating, image, stockStatus } = myArt;
 
   const handleDelete = (_id) => {
@@ -15,9 +16,12 @@ const MyArt = ({ myArt, yesNo, myArts, setMyArts }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/crafts/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://assignment-10-server-eight-opal.vercel.app/crafts/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -27,8 +31,8 @@ const MyArt = ({ myArt, yesNo, myArts, setMyArts }) => {
                 text: "Your Coffee has been deleted.",
                 icon: "success",
               });
-              const remaining = myArts.filter((crft) => crft._id !== _id);
-              setMyArts(remaining);
+              const remaining = filteredArts.filter((crft) => crft._id !== _id);
+              setFilteredArts(remaining);
             }
           });
       }
@@ -37,6 +41,9 @@ const MyArt = ({ myArt, yesNo, myArts, setMyArts }) => {
 
   return (
     <div className="card pb-2  bg-base-200 hover:shadow-xl">
+      <Helmet>
+        <title>My Art</title>
+      </Helmet>
       <figure>
         <img src={image} alt={name} className=" lg:h-[280px]" />
       </figure>

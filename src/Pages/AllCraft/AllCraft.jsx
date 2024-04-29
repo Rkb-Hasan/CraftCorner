@@ -1,15 +1,21 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { FaStar } from "react-icons/fa6";
+import { Helmet } from "react-helmet";
 const AllCraft = () => {
   const allCrafts = useLoaderData();
   return (
     <div>
-      <h3>All : {allCrafts.length}</h3>
-
       <div className="overflow-x-auto">
-        <table className="table text-base">
+        <Helmet>
+          <title>AllCrafts</title>
+        </Helmet>
+        <h3 className="lg:text-4xl text-2xl text-center font-bold">
+          All Art & craft Items
+        </h3>
+        <div className="divider"></div>
+        <table className="table text-base text-black  bg-slate-400 dark:bg-orange-700">
           {/* head */}
-          <thead>
+          <thead className="text-black">
             <tr className="lg:text-xl text-lg">
               <th>Name & Ratings</th>
               <th>Subcategory Name</th>

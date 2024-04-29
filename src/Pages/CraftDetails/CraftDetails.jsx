@@ -1,5 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { FaStar } from "react-icons/fa6";
+import { Helmet } from "react-helmet";
 const CraftDetails = () => {
   const craft = useLoaderData();
 
@@ -22,6 +23,9 @@ const CraftDetails = () => {
       className="hero min-h-screen"
       style={{ backgroundImage: `url(${image})` }}
     >
+      <Helmet>
+        <title>Details</title>
+      </Helmet>
       <div className="hero-overlay bg-opacity-60"></div>
       <div className=" text-center text-neutral-content">
         <div className="border p-5 rounded-2xl bg-slate-400 bg-opacity-5 hover:bg-opacity-15 duration-300 hover:scale-110">

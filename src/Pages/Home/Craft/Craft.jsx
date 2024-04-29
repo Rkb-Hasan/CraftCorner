@@ -19,7 +19,7 @@ const Craft = ({ craft }) => {
   return (
     <div className="card pb-2  bg-base-200 hover:shadow-xl">
       <figure>
-        <img src={image} alt={name} />
+        <img src={image} alt={name} className="lg:h-[280px]" />
       </figure>
 
       <div className="p-2 space-y-2">
