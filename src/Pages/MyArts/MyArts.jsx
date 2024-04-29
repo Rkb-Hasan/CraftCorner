@@ -4,15 +4,12 @@ import MyArt from "../MyArt/MyArt";
 
 const MyArts = () => {
   const [myArts, setMyArts] = useState([]);
-  // const [custom, setCustom] = useState(myArts);
-  // const [yesNo, setYesNo] = useState("");
-  // console.log(myArts);
+  const [filteredArts, setFilteredArts] = useState([]);
+
   const { user } = useContext(AuthContext);
 
-  // console.log(yesNo);
-
   const { email } = user;
-  // console.log(email);
+
   useEffect(() => {
     fetch(`http://localhost:5000/craft/${email}`)
       .then((res) => res.json())
@@ -20,7 +17,11 @@ const MyArts = () => {
         setMyArts(data);
         // console.log(data);
       });
-  }, [email, myArts]);
+  }, [email]);
+
+  useEffect(() => {
+    setFilteredArts(myArts);
+  }, [myArts]);
 
   // const handleYesNo = (ipt) => {
   //   setYesNo(ipt);
@@ -28,6 +29,16 @@ const MyArts = () => {
   //   setCustom(filtered);
   // };
   // console.log(custom);
+
+  const handleYes = () => {
+    const filtered = myArts.filter((myArt) => myArt.customization == "yes");
+    setFilteredArts(filtered);
+  };
+  const handleNo = () => {
+    const filtered = myArts.filter((myArt) => myArt.customization == "no");
+    setFilteredArts(filtered);
+  };
+
   return (
     <div>
       <div className="flex">
@@ -37,10 +48,10 @@ const MyArts = () => {
         <details className="dropdown ms-auto">
           <summary className="m-1 btn text-lg font-bold">Customization</summary>
           <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-            <li className="font-semibold">
+            <li onClick={handleYes} className="font-semibold">
               <a>yes</a>
             </li>
-            <li className="font-semibold">
+            <li onClick={handleNo} className="font-semibold">
               <a>no</a>
             </li>
           </ul>
@@ -48,7 +59,7 @@ const MyArts = () => {
       </div>
       <div className="divider"></div>
       <div className="grid lg:grid-cols-3  grid-cols-1 gap-4 my-10">
-        {myArts.map((myArt) => (
+        {filteredArts.map((myArt) => (
           <MyArt key={myArt._id} myArt={myArt}></MyArt>
         ))}
       </div>

@@ -17,7 +17,9 @@ import SubDetails from "../Pages/SubDetails/SubDetails";
 import SubItemDetails from "../Pages/SubDetails/SubItemDetails/SubItemDetails";
 import OurPartners from "../Pages/Home/OurPartners/OurPartners";
 import Member from "../Pages/Home/Member/Member";
+
 // import Landscape from "../Pages/SubDetails/SubDetails";
+
 const router = createBrowserRouter([
   {
     path: "/",

@@ -94,7 +94,7 @@ const UpdateCraft = () => {
                 name="name"
                 defaultValue={name}
                 placeholder="Item name.."
-                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+                className=" border-2  lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
             </div>
             <div className="space-y-3">
@@ -107,7 +107,7 @@ const UpdateCraft = () => {
                 name="price"
                 defaultValue={price}
                 placeholder="Price.."
-                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+                className=" border-2  lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
             </div>
             <div className="space-y-3">
@@ -120,7 +120,7 @@ const UpdateCraft = () => {
               <br />
               <select
                 name="subCategoryName"
-                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+                className="lg:p-4 p-2 border-2 rounded-lg w-full lg:text-lg"
                 defaultValue={subCategoryName}
               >
                 <option value="Landscape Painting">Landscape Painting</option>
@@ -146,7 +146,7 @@ const UpdateCraft = () => {
                 name="shortDescription"
                 defaultValue={shortDescription}
                 placeholder=" Short Description.."
-                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+                className=" border-2  lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
             </div>
 
@@ -160,7 +160,7 @@ const UpdateCraft = () => {
                 name="rating"
                 defaultValue={rating}
                 placeholder="Rating.."
-                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+                className=" border-2  lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
             </div>
           </div>
@@ -176,7 +176,7 @@ const UpdateCraft = () => {
 
               <select
                 name="customization"
-                className="lg:p-4 p-2  rounded-lg w-full lg:text-lg"
+                className="lg:p-4 p-2 border-2 rounded-lg w-full lg:text-lg"
               >
                 <option value="yes">yes</option>
                 <option value="no">no</option>
@@ -192,7 +192,7 @@ const UpdateCraft = () => {
                 name="image"
                 defaultValue={image}
                 placeholder="Image_URL.."
-                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+                className=" border-2  lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
             </div>
             <div className="space-y-3">
@@ -208,7 +208,7 @@ const UpdateCraft = () => {
                 name="processingTime"
                 defaultValue={processingTime}
                 placeholder="Processing Time.."
-                className="lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+                className=" border-2  lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
             </div>
             <div className="space-y-3">
@@ -222,7 +222,7 @@ const UpdateCraft = () => {
 
               <select
                 name="stockStatus"
-                className="lg:p-4 p-2  rounded-lg w-full lg:text-lg"
+                className="lg:p-4 p-2 border-2 rounded-lg w-full lg:text-lg"
               >
                 <option value="- In stock">In stock</option>
                 <option value="Made to Order">Made to Order</option>
@@ -234,7 +234,7 @@ const UpdateCraft = () => {
         <input
           type="submit"
           value="Update"
-          className="w-full btn font-bold text-lg"
+          className="w-full btn btn-primary font-bold text-lg"
         />
       </form>
     </div>
