@@ -18,7 +18,7 @@ const SubItemDetails = () => {
   return (
     <div className=" lg:min-h-screen flex flex-col justify-center items-center">
       <div
-        className="hero  p-2"
+        className="hero lg:min-h-screen p-2"
         style={{
           backgroundImage: `url(${image})`,
           backgroundPosition: "centre",
