@@ -92,7 +92,11 @@ const Navbar = () => {
               onChange={handleToggle}
               type="checkbox"
               className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2"
+              data-tooltip-delay-hide={1000}
             />
+            <Tooltip anchorSelect=".theme-controller" place="bottom">
+              {`Current theme is ${theme}`}
+            </Tooltip>
             <svg
               className="col-start-1 row-start-1 stroke-base-100 fill-base-100"
               xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +129,42 @@ const Navbar = () => {
           </label>
           {user ? (
             <div className="flex gap-2">
-              <div className="w-10  ">
+              <div className="dropdown dropdown-hover dropdown-bottom dropdown-end bg-inherit hover:bg-inherit border-0">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn bg-inherit hover:bg-inherit border-0  m-1"
+                >
+                  <img
+                    alt="User"
+                    className=" rounded-full w-10"
+                    src={user.photoURL}
+                  />
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content  z-[1000] menu p-2 pb-0  bg-green-600 border-2  rounded-box w-52"
+                >
+                  <li className="border-b-2">
+                    <a className="font-bold  text-black ">
+                      User : {user.displayName}
+                    </a>
+                  </li>
+                  <li className="w-full">
+                    <a className="flex">
+                      {" "}
+                      <button
+                        onClick={handleLogOut}
+                        className="btn btn-sm grow font-bold btn-primary "
+                      >
+                        Log Out
+                      </button>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* <div className="w-10  ">
                 <img
                   alt="User"
                   className="userPhoto rounded-full"
@@ -141,7 +180,7 @@ const Navbar = () => {
                 className="btn font-bold btn-primary lg:text-lg"
               >
                 Log Out
-              </button>
+              </button> */}
             </div>
           ) : loading ? (
             <div className="text-center mr-10">

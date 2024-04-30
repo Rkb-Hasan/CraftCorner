@@ -7,7 +7,7 @@ const Crafts = () => {
   return (
     <div>
       <div className="lg:mt-10 mt-4">
-        <h3 className="lg:text-4xl text-3xl font-bold text-center">
+        <h3 className="lg:text-4xl md:text-3xl text-2xl font-bold text-center">
           Craft Items{" "}
         </h3>
         <div className="divider"></div>

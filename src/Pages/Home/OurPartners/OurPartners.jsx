@@ -17,7 +17,7 @@ const OurPartners = () => {
     <div>
       <div>
         {" "}
-        <h3 className="lg:text-4xl text-2xl text-center font-bold">
+        <h3 className="lg:text-4xl md:text-3xl text-2xl text-center font-bold">
           Our Partners
         </h3>{" "}
         <div className="divider"></div>

@@ -58,7 +58,7 @@ const AddCraftItem = () => {
           console.log(data);
           Swal.fire({
             title: "Success!",
-            text: "User added",
+            text: "Item added",
             icon: "success",
             confirmButtonText: "OK",
           });

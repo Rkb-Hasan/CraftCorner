@@ -28,7 +28,7 @@ const MyArt = ({ myArt, setFilteredArts, filteredArts }) => {
             if (data.deletedCount) {
               Swal.fire({
                 title: "Deleted!",
-                text: "Your Coffee has been deleted.",
+                text: "Your item has been deleted.",
                 icon: "success",
               });
               const remaining = filteredArts.filter((crft) => crft._id !== _id);

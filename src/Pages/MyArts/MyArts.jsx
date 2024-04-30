@@ -11,6 +11,7 @@ const MyArts = () => {
 
   const { email } = user;
 
+  // fetch(`https://assignment-10-server-eight-opal.vercel.app/craft/?${queryParams}`)
   useEffect(() => {
     fetch(`https://assignment-10-server-eight-opal.vercel.app/craft/${email}`)
       .then((res) => res.json())
@@ -39,14 +40,14 @@ const MyArts = () => {
         <title>My Arts</title>
       </Helmet>
       <div className="flex">
-        <h3 className="text-4xl font-bold text-center flex-1">
+        <h3 className="lg:text-4xl md:text-3xl text-xl font-bold md:text-center text-left flex-1">
           My Art & Craft{" "}
         </h3>
-        <details className="dropdown  ms-auto">
-          <summary className="m-1 btn btn-primary text-lg font-bold">
+        <details className="dropdown dropdown-bottom dropdown-end  ms-auto">
+          <summary className="m-1 btn lg:btn-md btn-sm btn-primary lg:text-lg font-bold">
             Customization
           </summary>
-          <ul className="p-2 shadow menu dropdown-content bg-green-700  z-[1]  rounded-box w-52">
+          <ul className="md:p-2 p-1 shadow menu dropdown-content bg-green-700  z-[100]  rounded-box lg:w-40 md:w-32 w-20">
             <li onClick={handleYes} className="font-bold text-lg  border-b-2">
               <a>yes</a>
             </li>

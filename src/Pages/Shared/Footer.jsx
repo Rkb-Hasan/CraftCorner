@@ -5,7 +5,7 @@ const Footer = () => {
       <footer className="footer p-10  text-black lg:min-h-60   text-base max-w-7xl mx-auto px-4 ">
         <nav>
           <h6 className="footer-title">Services</h6>
-          <a className="link link-hover">Housing</a>
+          <a className="link link-hover">Crafting</a>
           <a className="link link-hover">Design</a>
           <a className="link link-hover">Property</a>
         </nav>

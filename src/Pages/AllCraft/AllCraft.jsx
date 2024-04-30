@@ -16,7 +16,7 @@ const AllCraft = () => {
         <table className="table text-base text-black  bg-slate-400 dark:bg-orange-700">
           {/* head */}
           <thead className="text-black">
-            <tr className="lg:text-xl text-lg">
+            <tr className="lg:text-xl md:text-lg text-xs">
               <th>Name & Ratings</th>
               <th>Subcategory Name</th>
               <th>Price</th>
@@ -26,8 +26,8 @@ const AllCraft = () => {
             {/* row 1 */}
             {allCrafts.map((craft) => (
               <tr key={craft._id}>
-                <td>
-                  <div className="flex items-center gap-3">
+                <td className="md:px-4 md:py-4 p-1">
+                  <div className="md:flex items-center gap-3">
                     <div className="avatar">
                       <div className="mask mask-squircle w-12 h-12">
                         <img
@@ -37,19 +37,25 @@ const AllCraft = () => {
                       </div>
                     </div>
                     <div>
-                      <div className="font-bold lg:text-lg ">{craft.name}</div>
-                      <div className=" flex gap-1  items-center">
+                      <div className="font-bold md:text-lg text-xs ">
+                        {craft.name}
+                      </div>
+                      <div className=" flex gap-1 md:text-lg text-xs items-center">
                         {craft.rating}{" "}
                         <FaStar className="text-md text-orange-400" />{" "}
                       </div>
                     </div>
                   </div>
                 </td>
-                <td>{craft.subCategoryName}</td>
-                <td>{craft.price}</td>
-                <th>
+                <td className=" md:px-4 md:py-4 p-1 font-bold md:text-md text-xs">
+                  {craft.subCategoryName}
+                </td>
+                <td className=" md:px-4 md:py-4 p-1 font-bold md:text-md text-xs">
+                  {craft.price}
+                </td>
+                <th className=" font-bold md:text-md text-xs md:px-4 md:py-4 p-1 ">
                   <Link to={`/craft/${craft._id}`}>
-                    <button className="btn btn-primary font-bold ">
+                    <button className="btn btn-md p-1 py-2 btn-primary font-bold ">
                       View Details
                     </button>
                   </Link>

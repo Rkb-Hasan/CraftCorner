@@ -8,42 +8,55 @@ const SubItemDetails = () => {
   const {
     item_name,
     price,
-    subCategoryName,
+
     rating,
     image,
     processingTime,
     shortDescription,
   } = subItem;
-  //   console.log(craft);
+
   return (
-    <div
-      className="hero min-h-screen"
-      style={{ backgroundImage: `url(${image})` }}
-    >
-      <Helmet>
-        <title>Details</title>
-      </Helmet>
+    <div className=" lg:min-h-screen flex flex-col justify-center items-center">
+      <div
+        className="hero  p-2"
+        style={{
+          backgroundImage: `url(${image})`,
+          backgroundPosition: "centre",
+          backgroundSize: "cover",
+        }}
+      >
+        <Helmet>
+          <title>SubDetails</title>
+        </Helmet>
 
-      <div className="hero-overlay bg-opacity-60"></div>
-      <div className=" text-center text-neutral-content">
-        <div className="border p-5 rounded-2xl bg-slate-400 bg-opacity-5 hover:bg-opacity-15 duration-300 hover:scale-110">
-          <h1 className="mb-5 text-5xl font-bold">{item_name}</h1>
-          <p className="mb-5">{shortDescription}</p>
-          <p className="font-bold">
-            Processed Time of this beautiful work is {processingTime}{" "}
-          </p>
+        <div className="hero-overlay bg-opacity-60"></div>
+        <div className=" text-center text-neutral-content">
+          <div className="border lg:p-5 p-2 rounded-2xl bg-slate-400 bg-opacity-5 hover:bg-opacity-15 duration-300 hover:scale-110 md:my-8 md:mx-0 lg:m-0 m-5 ">
+            <h1 className="mb-5 lg:text-5xl md:text-3xl text-2xl font-bold">
+              {item_name}
+            </h1>
+            <p className="lg:mb-5 mb-3">{shortDescription}</p>
+            <p className="font-bold md:text-base text-sm">
+              Processed Time of this beautiful work is {processingTime}{" "}
+            </p>
 
-          <p className="font-bold flex justify-center items-center">
-            <span> Users Rating of this work is - {rating} </span>
-            <FaStar className="text-sm text-orange-400" />{" "}
-          </p>
+            <p className="font-bold md:text-base text-sm flex justify-center items-center">
+              <span> Users Rating of this work is - {rating} </span>
+              <FaStar className="text-sm text-orange-400" />{" "}
+            </p>
 
-          <p className="font-bold">Available at only - {price}</p>
-          <div className="flex justify-center items-center gap-2">
-            <span>See more products of {subCategoryName} category?</span>
-            <Link to="/">
-              <button className="btn btn-sm btn-primary">See More</button>
-            </Link>
+            <p className="font-bold md:text-base text-sm">
+              Available only at- {price}
+            </p>
+
+            <div className="flex justify-center items-center gap-2">
+              <span className="md:text-base text-sm">
+                See more products of Us?
+              </span>
+              <Link to="/">
+                <button className="btn btn-sm btn-primary">See More</button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

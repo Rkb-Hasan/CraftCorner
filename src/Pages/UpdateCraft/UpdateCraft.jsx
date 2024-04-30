@@ -1,7 +1,7 @@
 // import { useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet";
 
 // import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
@@ -9,7 +9,7 @@ import { Helmet } from "react-helmet";
 const UpdateCraft = () => {
   //   const { user } = useContext(AuthContext);
   //   const { email } = user;
-  const { reset } = useForm();
+  // const { reset } = useForm();
   const craft = useLoaderData();
   const navigate = useNavigate();
 
@@ -18,12 +18,11 @@ const UpdateCraft = () => {
     name,
     price,
     subCategoryName,
-    customization,
+
     rating,
     image,
     processingTime,
     shortDescription,
-    stockStatus,
   } = craft;
   console.log(craft);
   const handleUpdateCraft = (e) => {
@@ -66,7 +65,16 @@ const UpdateCraft = () => {
         if (data.modifiedCount) {
           Swal.fire({
             title: "Success!",
-            text: "Coffee updated",
+            text: "Item updated",
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+
+          navigate("/craft/myArt");
+        } else if (!data.modifiedCount) {
+          Swal.fire({
+            title: "Success!",
+            text: "No Update made!!",
             icon: "success",
             confirmButtonText: "OK",
           });
@@ -228,7 +236,7 @@ const UpdateCraft = () => {
                 name="stockStatus"
                 className="lg:p-4 p-2 border-2 rounded-lg w-full lg:text-lg"
               >
-                <option value="- In stock">In stock</option>
+                <option value="In stock">In stock</option>
                 <option value="Made to Order">Made to Order</option>
               </select>
             </div>

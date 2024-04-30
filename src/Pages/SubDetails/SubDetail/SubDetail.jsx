@@ -19,12 +19,12 @@ const SubDetail = ({ subDetail }) => {
         <title>Sub Detail</title>
       </Helmet>
       <figure>
-        <img src={image} alt={item_name} className="h-[480px] w-full" />
+        <img src={image} alt={item_name} className="lg:h-[480px] w-full" />
       </figure>
 
       <div className="p-2 space-y-2">
         <h2 className="card-title font-bold">{item_name}</h2>
-        <p className="text-lg">{shortDescription}</p>
+        <p className="text-lg">{shortDescription}.</p>
         <div className="flex items-center  gap-2">
           <p className="text-blue-500">
             <span className="font-bold ">Sub-Category</span> :{" "}
@@ -64,7 +64,7 @@ const SubDetail = ({ subDetail }) => {
           </div> */}
         <div>
           <Link to={`/subCategoryDetail/${_id}`}>
-            <button className=" btn w-full bg-green-500 font-bold text-lg ">
+            <button className=" btn w-full btn-primary font-bold text-lg ">
               View Details
             </button>
           </Link>

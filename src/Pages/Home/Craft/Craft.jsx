@@ -62,7 +62,7 @@ const Craft = ({ craft }) => {
 
         <div>
           <Link to={`/craft/${_id}`}>
-            <button className=" btn w-full bg-green-500 font-bold text-lg ">
+            <button className=" btn w-full btn-primary font-bold text-lg ">
               View Details
             </button>
           </Link>

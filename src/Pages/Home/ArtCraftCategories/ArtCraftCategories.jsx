@@ -16,12 +16,12 @@ const ArtCraftCategories = () => {
   console.log(subCategories);
   return (
     <div>
-      <h3 className="text-4xl  font-bold text-center ">
+      <h3 className="lg:text-4xl md:text-3xl text-2xl  font-bold text-center ">
         Art & Craft Categories
       </h3>
       <div className="divider"></div>
 
-      <h3 className="lg:text-2xl text-xl font-bold text-center ">
+      <h3 className="lg:text-xl md:text-lg  font-bold text-center ">
         Click a Category to see details.
       </h3>
 
