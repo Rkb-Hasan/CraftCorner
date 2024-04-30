@@ -47,13 +47,13 @@ const AllCraft = () => {
                     </div>
                   </div>
                 </td>
-                <td className=" md:px-4 md:py-4 p-1 font-bold md:text-md text-xs">
+                <td className=" md:px-4 md:py-4 p-1 font-bold  lg:text-lg md:text-base text-xs">
                   {craft.subCategoryName}
                 </td>
-                <td className=" md:px-4 md:py-4 p-1 font-bold md:text-md text-xs">
+                <td className=" md:px-4 md:py-4 p-1 font-bold  lg:text-lg md:text-base text-xs">
                   {craft.price}
                 </td>
-                <th className=" font-bold md:text-md text-xs md:px-4 md:py-4 p-1 ">
+                <th className=" font-bold  lg:text-lg  md:text-base text-xs md:px-4 md:py-4 p-1 ">
                   <Link to={`/craft/${craft._id}`}>
                     <button className="btn btn-md p-1 py-2 btn-primary font-bold ">
                       View Details
