@@ -113,11 +113,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/subCategoryDetail/:id",
-        element: (
-          <PrivateRoute>
-            <SubItemDetails></SubItemDetails>
-          </PrivateRoute>
-        ),
+        element: <SubItemDetails></SubItemDetails>,
         loader: ({ params }) =>
           fetch(
             `https://assignment-10-server-eight-opal.vercel.app/subCategoryDetail/${params.id}`
